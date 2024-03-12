@@ -1,0 +1,6 @@
+package com.example.appium_trial
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
