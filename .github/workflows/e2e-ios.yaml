@@ -19,7 +19,7 @@ jobs:
         run: npm i -g appium
 
       - name: Install iOS appium driver
-        run: appium driver install XCUITest
+        run: appium driver install xcuitest
 
       - name: List available Simulators
         run: xcrun simctl list
