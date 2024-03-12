@@ -1,0 +1,39 @@
+name: End to end integration tests for iOS App
+
+on:
+  push:
+#    branches:
+#      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: ⬇️  Check out repository code
+        uses: actions/checkout@v4
+
+      - name: 📦 Install Node
+        run: brew install node
+
+      - name: 🧩 Install Appium
+        run: npm i -g appium
+
+      - name: Install iOS appium driver
+        run: appium driver install XCUITest
+
+      - name: List available Simulators
+        run: xcrun simctl list
+
+      - name: Create iPhone 15 running iOS 17.2
+        run: |
+          {
+            echo 'DEVICE_ID<<EOF'
+            xcrun simctl create appium_trial com.apple.CoreSimulator.SimDeviceType.iPhone-15 com.apple.CoreSimulator.SimRuntime.iOS-17-2
+            echo EOF
+          } >> "$GITHUB_ENV"
+
+      - name: Verify Simulator was created
+        run: xcrun simctl list
+
+      - name: Verify env var was set
+        run: echo "$DEVICE_ID"
