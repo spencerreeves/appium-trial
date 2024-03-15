@@ -20,7 +20,7 @@ jobs:
 
       - name: Build iOS app
         working-directory: ./ios
-        run: xcodebuild build -workspace "Runner.xcworkspace" -scheme "Runner" -destination "platform=iOS Simulator,name=iPhone 15" -configuration Debug -derivedDataPath ../appium/apps -sdk iphonesimulator17.2
+        run: xcodebuild build -workspace "Runner.xcworkspace" -scheme "Runner" -destination "platform=iOS Simulator,name=iPhone 15" -configuration Debug -derivedDataPath ../appium/apps
 
       - name: Create appium/apps directory
         working-directory: ./appium
