@@ -15,8 +15,8 @@ jobs:
       # XCode and NPM already installed. See full list of preinstalled software here:
       # https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md
 
-      - name: Create iPhone Simulator 17.2
-        run: xcrun simctl create iphonesimulator17.2 com.apple.CoreSimulator.SimDeviceType.iPhone-15 com.apple.CoreSimulator.SimRuntime.iOS-17-2
+      - name: Show available SDKs
+        run: xcodebuild -showsdks
 
       - name: Build iOS app
         working-directory: ./ios
